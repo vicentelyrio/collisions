@@ -5,7 +5,10 @@
   "author": "vicentelyrio@gmail.com",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "lint": "eslint ./src",
     "lint:fix": "npm run lint --fix",
     "lint:staged": "lint-staged",
     "test": "jest",
@@ -30,6 +33,7 @@
     "@commitlint/config-conventional": "^13.1.0",
     "@semantic-release/changelog": "^5.0.1",
     "@testing-library/jest-dom": "^5.14.1",
+    "@vitejs/plugin-react": "^1.0.2",
     "babel-jest": "^27.0.6",
     "babel-plugin-styled-components": "^1.13.2",
     "commitizen": "^4.2.4",
@@ -48,7 +52,8 @@
     "lint-staged": "^11.1.2",
     "react-test-renderer": "^17.0.2",
     "regenerator-runtime": "^0.13.9",
-    "semantic-release": "^17.4.4"
+    "semantic-release": "^17.4.4",
+    "vite": "^2.6.3"
   },
   "repository": {
     "type": "git",
@@ -60,7 +65,7 @@
   },
   "homepage": "https://github.com/vicentelyrio/react-collision#readme",
   "lint-staged": {
-    "**/*.js": [
+    "./src/**/*.js": [
       "eslint"
     ]
   },
