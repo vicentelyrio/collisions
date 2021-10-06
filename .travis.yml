@@ -1,0 +1,19 @@
+language: node_js
+os: linux
+dist: xenial
+node_js:
+  - 14.16.1
+jobs:
+  include:
+    - stage: release
+      node_js: 14.16.1
+      script: 
+        - npm run test:ci
+        - npm run build
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npx semantic-release
+        on:
+          branch: main
