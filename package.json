@@ -65,7 +65,7 @@
   },
   "homepage": "https://github.com/vicentelyrio/react-collision#readme",
   "lint-staged": {
-    "./src/**/*.js": [
+    "./src/**/*.{js,jsx,ts,tsx}": [
       "eslint"
     ]
   },

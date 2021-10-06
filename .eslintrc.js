@@ -35,7 +35,9 @@ module.exports = {
       },
       alias: {
         map: [
-          ['config', './config']
+          ['config', './config'],
+          ['@hooks', './src/hooks'],
+          ['@components', './src/components'],
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx']
       }
@@ -62,7 +64,8 @@ module.exports = {
     'import/no-extraneous-dependencies': ['error', { devDependencies: [
       '**/*.test.js',
       '**/*.factory.js',
-      '**/config/**/*.js'
+      '**/config/**/*.js',
+      'vite.config.js',
     ] }]
   }
 }

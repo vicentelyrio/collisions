@@ -1,38 +1,9 @@
 import React, { useRef, useState } from 'react'
 
+import { getElementBounds } from '@hooks/helpers'
+import { useCircleCollision } from '@hooks/useCircleCollision'
+
 import * as Styled from './Demo.styles'
-
-export const getElementBounds = (node) => {
-  const { x, y, width, heigth } = node?.getBoundingClientRect() || {}
-  return [x, y, width, heigth]
-}
-
-export const usePointCollision = (element, target) => {
-  const [x1, y1] = getElementBounds(element)
-  const [x2, y2] = getElementBounds(target)
-
-  return { collided: x1 === x2 && y1 === y2 }
-}
-
-const getCenters = (x, y, w) => {
-  const r = w / 2
-  const cx = x + r
-  const cy = y + r
-
-  return [cx, cy, r]
-}
-
-const useCircleCollision = (element, target) => {
-  const eBounds = getElementBounds(element.current)
-  const tBounds = getElementBounds(target.current)
-  const [ecx, ecy, er] = getCenters(...eBounds)
-  const [tcx, tcy, tr] = getCenters(...tBounds)
-  const distX = ecx - tcx
-  const distY = ecy - tcy
-  const distance = Math.sqrt(distX * distX + distY * distY)
-
-  return { collided: distance <= er + tr }
-}
 
 export const Demo = () => {
   const element = useRef(null)
