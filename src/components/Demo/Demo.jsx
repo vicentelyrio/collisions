@@ -1,17 +1,18 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useCallback } from 'react'
 
 import { getElementBounds } from '@hooks/helpers'
-import { useCircleCollision } from '@hooks/useCircleCollision'
 
 import * as Styled from './Demo.styles'
 
-export const Demo = () => {
+export { TYPES } from './Demo.styles'
+
+export const Demo = ({ useCollision, elementType, targetType }) => {
   const element = useRef(null)
   const target = useRef(null)
-  const { collided } = useCircleCollision(element, target)
+  const { collided } = useCollision(element, target)
   const [elementPosition, setPointPosition] = useState({})
 
-  const onMouseMove = (event) => {
+  const onMouseMove = useCallback((event) => {
     const [x, y] = getElementBounds(event.currentTarget)
     const { clientX, clientY } = event
     const { offsetWidth, offsetHeight } = element.current
@@ -20,12 +21,12 @@ export const Demo = () => {
       left: `${clientX - x - (offsetWidth / 2)}px`,
       top: `${clientY - y - (offsetHeight / 2)}px`
     })
-  }
+  }, [])
 
   return (
     <Styled.Demo onMouseMove={onMouseMove} $collided={collided}>
-      <Styled.Element ref={element} style={elementPosition} />
-      <Styled.Target ref={target} />
+      <Styled.Element $type={elementType} ref={element} style={elementPosition} />
+      <Styled.Target $type={targetType} ref={target} />
     </Styled.Demo>
   )
 }

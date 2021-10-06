@@ -1,6 +1,6 @@
 export const getElementBounds = (node) => {
   const { x, y, width, heigth } = node?.getBoundingClientRect() || {}
-  return [x, y, width, heigth]
+  return [Math.round(x), Math.round(y), width, heigth]
 }
 
 export const getCircleCenter = (x, y, w) => {
