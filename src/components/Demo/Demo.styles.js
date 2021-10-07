@@ -23,6 +23,16 @@ export const Demo = styled.section`
   overflow: hidden;
 `
 
+export const Coords = styled.div`
+  font-size: 10px;
+  color: ${({ theme }) => theme.colors.gray};
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+`
+
 export const Base = styled.div`
   position: absolute;
   cursor: none;
