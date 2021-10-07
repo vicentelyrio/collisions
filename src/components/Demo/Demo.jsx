@@ -1,6 +1,6 @@
 import React, { useRef, useState, useCallback } from 'react'
 
-import { getElementBounds } from '@hooks/helpers'
+import { getRectBounds } from '@hooks/helpers'
 
 import * as Styled from './Demo.styles'
 
@@ -13,7 +13,7 @@ export const Demo = ({ useCollision, elementType, targetType }) => {
   const [elementPosition, setPointPosition] = useState({})
 
   const onMouseMove = useCallback((event) => {
-    const [x, y] = getElementBounds(event.currentTarget)
+    const [x, y] = getRectBounds(event.currentTarget)
     const { clientX, clientY } = event
     const { offsetWidth, offsetHeight } = element.current
 

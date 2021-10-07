@@ -4,10 +4,12 @@ export const theme = {
   colors: {
     purple: '#CAB8FF',
     pink: '#EB92BE',
+    red: '#ff6a85',
     yellow: '#FFEF78',
     darkBlue: '#A8E7E9',
     lightBlue: '#B1FFFD',
     green: '#C1FFD7',
+    gray: '#333333',
   },
   zIndex: {
     base: 0,
