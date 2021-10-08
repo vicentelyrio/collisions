@@ -1,7 +1,7 @@
 import { getRectBounds } from '@hooks/helpers'
 
-export const usePointRectangleCollision = (element, target) => {
-  const [ex, ey] = getRectBounds(element.current)
+export const usePointRectangleCollision = (pointer, target) => {
+  const [ex, ey] = getRectBounds(pointer.current)
   const [tx, ty, tw, th] = getRectBounds(target.current)
 
   return {

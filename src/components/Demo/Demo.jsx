@@ -1,37 +1,61 @@
-import React, { useRef, useState, useCallback } from 'react'
+import React, { useRef, useState, useCallback, useMemo } from 'react'
 
 import { getRectBounds, getBounds } from '@hooks/helpers'
 
 import * as Styled from './Demo.styles'
 
-export { TYPES } from './Demo.styles'
+export const TYPES = {
+  point: 'point',
+  circle: 'circle',
+  rect: 'rect',
+}
 
-export const Demo = ({ useCollision, elementType, targetType }) => {
-  const container = useRef(null)
-  const element = useRef(null)
-  const target = useRef(null)
-  const { collided } = useCollision(element, target)
-  const [elementPosition, setPointPosition] = useState({})
-  const [coord, setCoords] = useState({ clientX: 0, clientY: 0 })
+export const POINTER = {
+  [TYPES.point]: Styled.PointerPoint,
+  [TYPES.circle]: Styled.PointerCircle,
+  [TYPES.rect]: Styled.PointerRect,
+}
+
+export const TARGET = {
+  [TYPES.point]: Styled.TargetPoint,
+  [TYPES.circle]: Styled.TargetCircle,
+  [TYPES.rect]: Styled.TargetRect,
+}
+
+export const Demo = ({ useCollision, pointer, target }) => {
+  const containerRef = useRef(null)
+  const pointerRef = useRef(null)
+  const targetRef = useRef(null)
+
+  const { collided } = useCollision(pointerRef, targetRef)
+  const [pointerPosition, setElementPosition] = useState({})
+  const [coord, setCoords] = useState({ x: 0, y: 0 })
 
   const onMouseMove = useCallback((event) => {
     const [x, y] = getRectBounds(event.currentTarget)
-    const [cx, cy, cw, ch] = getRectBounds(container.current)
+    const [cx, cy, cw, ch] = getRectBounds(containerRef.current)
     const { clientX, clientY } = event
-    const { offsetWidth, offsetHeight } = element.current
+    const { offsetWidth, offsetHeight } = pointerRef.current
 
-    setPointPosition({
+    setElementPosition({
       left: `${clientX - x - (offsetWidth / 2)}px`,
       top: `${clientY - y - (offsetHeight / 2)}px`
     })
-    setCoords({ x: getBounds(clientX - cx, 0, cw), y: getBounds(clientY - cy, 0, ch) })
+
+    setCoords({
+      x: getBounds(clientX - cx, 0, cw),
+      y: getBounds(clientY - cy, 0, ch)
+    })
   }, [])
 
+  const Pointer = useMemo(() => POINTER[pointer], [pointer])
+  const Target = useMemo(() => TARGET[target], [target])
+
   return (
-    <Styled.Demo ref={container} onMouseMove={onMouseMove} $collided={collided}>
-      <Styled.Element ref={element} $type={elementType} style={elementPosition} />
-      <Styled.Target ref={target} $type={targetType} />
+    <Styled.Demo ref={containerRef} onMouseMove={onMouseMove} $collided={collided}>
       <Styled.Coords children={`${coord.x} x | ${coord.y} y`} />
+      <Pointer ref={pointerRef} style={pointerPosition} />
+      <Target ref={targetRef} />
     </Styled.Demo>
   )
 }

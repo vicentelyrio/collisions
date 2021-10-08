@@ -1,8 +1,8 @@
 import { getRectBounds, getCircleBounds, getBounds, getHypotenuse } from '@hooks/helpers'
 
-export const useCircleRectangleCollision = (element, target) => {
+export const useCircleRectangleCollision = (pointer, target) => {
   const [tx, ty, tw, th] = getRectBounds(target.current)
-  const [ex, ey, er] = getCircleBounds(element.current)
+  const [ex, ey, er] = getCircleBounds(pointer.current)
 
   const testX = getBounds(ex, tx, tx + tw)
   const testY = getBounds(ey, ty, ty + th)
