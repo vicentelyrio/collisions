@@ -27,7 +27,7 @@ export const Demo = ({ useCollision, pointer, target }) => {
   const pointerRef = useRef(null)
   const targetRef = useRef(null)
 
-  const { collided } = useCollision(pointerRef, targetRef)
+  const { collided } = useCollision(pointerRef.current, targetRef.current)
   const [pointerPosition, setElementPosition] = useState({})
   const [coord, setCoords] = useState({ x: 0, y: 0 })
 
@@ -48,8 +48,8 @@ export const Demo = ({ useCollision, pointer, target }) => {
     })
   }, [])
 
-  const Pointer = useMemo(() => POINTER[pointer], [pointer])
-  const Target = useMemo(() => TARGET[target], [target])
+  const Pointer = useMemo(() => POINTER[pointer] || POINTER.point, [pointer])
+  const Target = useMemo(() => TARGET[target] || TARGET.point, [target])
 
   return (
     <Styled.Demo ref={containerRef} onMouseMove={onMouseMove} $collided={collided}>

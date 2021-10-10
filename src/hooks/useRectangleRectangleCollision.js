@@ -1,13 +1,13 @@
 import { getRectBounds } from '@hooks/helpers'
 
-export const useRectangleRectangleCollision = (pointer, target) => {
-  const [ex, ey, ew, eh] = getRectBounds(pointer.current)
-  const [tx, ty, tw, th] = getRectBounds(target.current)
+export const useRectangleRectangleCollision = (rectA, rectB) => {
+  const [rectAX, rectAY, rectAWidth, rectAHeight] = getRectBounds(rectA)
+  const [rectBX, rectBY, rectBWidth, rectBHeight] = getRectBounds(rectB)
 
   return {
-    collided: ex + ew >= tx
-      && ex <= tx + tw
-      && ey + eh >= ty
-      && ey <= ty + th
+    collided: rectAX + rectAWidth >= rectBX
+      && rectAX <= rectBX + rectBWidth
+      && rectAY + rectAHeight >= rectBY
+      && rectAY <= rectBY + rectBHeight
   }
 }
