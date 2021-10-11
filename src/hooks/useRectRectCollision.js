@@ -1,6 +1,6 @@
 import { getRectBounds } from '@hooks/helpers'
 
-export const useRectangleRectangleCollision = (rectA, rectB) => {
+export const useRectRectCollision = (rectA, rectB) => {
   const [rectAX, rectAY, rectAWidth, rectAHeight] = getRectBounds(rectA)
   const [rectBX, rectBY, rectBWidth, rectBHeight] = getRectBounds(rectB)
 

@@ -1,6 +1,12 @@
 import React, { useRef, useState, useCallback, useMemo } from 'react'
 
 import { getRectBounds, getBounds } from '@hooks/helpers'
+import { usePointPointCollision } from '@hooks/usePointPointCollision'
+import { useCircleCircleCollision } from '@hooks/useCircleCircleCollision'
+import { useRectRectCollision } from '@hooks/useRectRectCollision'
+import { usePointCircleCollision, useCirclePointCollision } from '@hooks/usePointCircleCollision'
+import { usePointRectCollision, useRectPointCollision } from '@hooks/usePointRectCollision'
+import { useCircleRectCollision, useRectCircleCollision } from '@hooks/useCircleRectCollision'
 
 import * as Styled from './Demo.styles'
 
@@ -22,14 +28,33 @@ export const TARGET = {
   [TYPES.rect]: Styled.TargetRect,
 }
 
-export const Demo = ({ useCollision, pointer, target }) => {
+const HOOKS = {
+  [`${TYPES.point}-${TYPES.point}`]: usePointPointCollision,
+  [`${TYPES.point}-${TYPES.circle}`]: usePointCircleCollision,
+  [`${TYPES.point}-${TYPES.rect}`]: usePointRectCollision,
+  [`${TYPES.circle}-${TYPES.point}`]: useCirclePointCollision,
+  [`${TYPES.circle}-${TYPES.circle}`]: useCircleCircleCollision,
+  [`${TYPES.circle}-${TYPES.rect}`]: useCircleRectCollision,
+  [`${TYPES.rect}-${TYPES.point}`]: useRectPointCollision,
+  [`${TYPES.rect}-${TYPES.circle}`]: useRectCircleCollision,
+  [`${TYPES.rect}-${TYPES.rect}`]: useRectRectCollision,
+}
+
+const getCollision = ({ pointer, target }) => HOOKS[`${pointer}-${target}`]
+
+export const Demo = ({ pointer, target }) => {
   const containerRef = useRef(null)
   const pointerRef = useRef(null)
   const targetRef = useRef(null)
 
-  const { collided } = useCollision(pointerRef.current, targetRef.current)
+  const Pointer = useMemo(() => POINTER[pointer] || POINTER.point, [pointer])
+  const Target = useMemo(() => TARGET[target] || TARGET.point, [target])
+
   const [pointerPosition, setElementPosition] = useState({})
   const [coord, setCoords] = useState({ x: 0, y: 0 })
+
+  const useCollision = useMemo(() => getCollision({ pointer, target }), [pointer, target])
+  const { collided } = useCollision(pointerRef.current, targetRef.current)
 
   const onMouseMove = useCallback((event) => {
     const [x, y] = getRectBounds(event.currentTarget)
@@ -47,9 +72,6 @@ export const Demo = ({ useCollision, pointer, target }) => {
       y: getBounds(clientY - cy, 0, ch)
     })
   }, [])
-
-  const Pointer = useMemo(() => POINTER[pointer] || POINTER.point, [pointer])
-  const Target = useMemo(() => TARGET[target] || TARGET.point, [target])
 
   return (
     <Styled.Demo ref={containerRef} onMouseMove={onMouseMove} $collided={collided}>

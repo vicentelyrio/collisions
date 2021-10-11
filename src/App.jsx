@@ -1,12 +1,5 @@
 import React, { useCallback, useState } from 'react'
 
-import { usePointPointCollision } from '@hooks/usePointPointCollision'
-import { usePointCircleCollision } from '@hooks/usePointCircleCollision'
-import { useCircleCircleCollision } from '@hooks/useCircleCircleCollision'
-import { usePointRectangleCollision } from '@hooks/usePointRectangleCollision'
-import { useRectangleRectangleCollision } from '@hooks/useRectangleRectangleCollision'
-import { useCircleRectangleCollision } from '@hooks/useCircleRectangleCollision'
-
 import { Demo } from './components/Demo/Demo'
 import { Selector } from './components/Selector/Selector'
 import { IconNav } from './components/IconNav/IconNav'
@@ -23,15 +16,6 @@ const POINTERS = {
   point: 'point',
   circle: 'circle',
   rect: 'rect',
-}
-
-const HOOKS = {
-  [`${POINTERS.point}-${TARGETS.point}`]: usePointPointCollision,
-  [`${POINTERS.point}-${TARGETS.circle}`]: usePointCircleCollision,
-  [`${POINTERS.point}-${TARGETS.rect}`]: usePointRectangleCollision,
-  [`${POINTERS.circle}-${TARGETS.circle}`]: useCircleCircleCollision,
-  [`${POINTERS.circle}-${TARGETS.rect}`]: useCircleRectangleCollision,
-  [`${POINTERS.rect}-${TARGETS.rect}`]: useRectangleRectangleCollision,
 }
 
 const EXAMPLES = [
@@ -61,19 +45,11 @@ const EXAMPLES = [
   },
 ]
 
-const useCollisions = ({ pointer, target }) => {
-  console.log(pointer, target)
-
-  return HOOKS[`${pointer}-${target}`] || HOOKS['point-point']
-}
-
 export const App = () => {
   const [current, setCurrent] = useState({
-    pointer: POINTERS.point,
-    target: TARGETS.point,
+    pointer: POINTERS.circle,
+    target: TARGETS.circle,
   })
-
-  const useCollision = useCollisions({ ...current })
 
   const onSelect = useCallback(({ pointer, target }) => () => (
     setCurrent({ pointer, target })
@@ -103,10 +79,7 @@ export const App = () => {
           onSelect={onSelect}
         />
       </Styled.Nav>
-      <Demo
-        {...current}
-        useCollision={useCollision}
-      />
+      <Demo {...current} />
     </Styled.Main>
   )
 }

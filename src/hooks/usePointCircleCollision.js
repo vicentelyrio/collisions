@@ -1,6 +1,6 @@
 import { getRectBounds, getCircleBounds, getHypotenuse } from '@hooks/helpers'
 
-export const usePointCircleCollision = (point, circle) => {
+export const pointCircleCalc = (point, circle) => {
   const [pointX, pointY] = getRectBounds(point)
   const [circleX, circleY, circleRadius] = getCircleBounds(circle)
 
@@ -12,3 +12,11 @@ export const usePointCircleCollision = (point, circle) => {
     collided: distance <= circleRadius
   }
 }
+
+export const usePointCircleCollision = (point, circle) => (
+  pointCircleCalc(point, circle)
+)
+
+export const useCirclePointCollision = (circle, point) => (
+  pointCircleCalc(point, circle)
+)
