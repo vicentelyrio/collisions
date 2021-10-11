@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Point } from '@components/Point/Point'
 import { Pointer } from '@components/Pointer/Pointer'
 import { Target } from '@components/Target/Target'
+import { gameFont } from '@/theme'
 
 export const Demo = styled.section`
   background-color: ${({ theme: { colors }, $collided }) => (
@@ -10,16 +11,14 @@ export const Demo = styled.section`
   )};
   cursor: none;
   transition: background-color ease-in .2s;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  flex: 1 1 auto;
   overflow: hidden;
+  position: relative;
 `
 
 export const Coords = styled.div`
+  ${gameFont};
+  text-transform: capitalize;
   font-size: 10px;
   color: ${({ theme }) => theme.colors.gray};
   position: absolute;

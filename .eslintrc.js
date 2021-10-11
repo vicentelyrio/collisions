@@ -35,7 +35,7 @@ module.exports = {
       },
       alias: {
         map: [
-          ['config', './config'],
+          ['@', './src'],
           ['@hooks', './src/hooks'],
           ['@components', './src/components'],
         ],

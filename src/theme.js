@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 export const theme = {
   colors: {
@@ -19,11 +19,18 @@ export const theme = {
   }
 }
 
+export const gameFont = css`font-family: 'Press Start 2P', cursive;`
+export const defaultFont = css`font-family: 'Noto Sans Display', sans-serif;`
+
 export const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 16px;
-    font-family: 'Noto Sans Display', sans-serif;
+    ${defaultFont};
+  }
+
+  html, body {
+    overflow: hidden;
   }
 
   *, *:before, *:after {

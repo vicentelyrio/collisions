@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 
+import { gameFont } from '@/theme'
+
 export const Selector = styled.div`
-  background-color: rgba(0, 0, 0, .2);
+  background-color: ${({ theme }) => theme.colors.gray};
   border-radius: 2px;
   color: ${({ theme }) => theme.colors.pink};
+  ${gameFont};
   text-transform: uppercase;
   min-width: 200px;
   height: 40px;
-  font-size: 14px;
+  line-height: 20px;
+  font-size: 9px;
   display: flex;
   position: relative;
 

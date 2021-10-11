@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { gameFont } from '@/theme'
+
 const TYPES = {
   point: 'point',
   circle: 'circle',
@@ -15,18 +17,28 @@ export const IconNav = styled.div`
 export const IconNavLabel = styled.h6`
   text-transform: uppercase;
   line-height: 40px;
-  font-size: 14px;
-  color: ${({ theme }) => theme.colors.black};
+  font-size: 10px;
+  ${gameFont}
+  color: ${({ theme }) => theme.colors.gray};
 `
 
 export const IconNavIcon = styled.div`
-  background-color: rgba(0, 0, 0, .2);
   border-radius: 2px;
+  box-shadow: inset rgba(0, 0, 0, .04) 0 0 4px 4px;
   width: 40px;
   height: 40px;
   position: relative;
   cursor: pointer;
   margin-left: 10px;
+  transition: background-color ease-in-out .2s;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .1);
+  }
+
+  &:active {
+    background-color: rgba(0, 0, 0, .2);
+  }
 
   &:before,
   &:after {
@@ -35,15 +47,11 @@ export const IconNavIcon = styled.div`
   }
 
   &:after {
-    background-color: ${({ theme }) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.gray};
   }
 
   &:before {
-    border-color: ${({ theme }) => theme.colors.black};
-  }
-
-  &:hover {
-    background-color: rgba(0, 0, 0, .1);
+    border-color: ${({ theme }) => theme.colors.gray};
   }
 
   ${({ type }) => {
@@ -60,7 +68,8 @@ export const IconNavIcon = styled.div`
           margin: auto
         }
         &:before {
-          border: 2px solid;
+          border-width: 2px;
+          border-style: solid;
           border-radius: 50%;
           width: 22px;
           height: 22px;
@@ -104,7 +113,7 @@ export const IconNavIcon = styled.div`
   }}
 
   ${({ selected, theme }) => selected && `
-    background-color: rgba(0, 0, 0, .8);
+    background-color: ${theme.colors.gray};
     pointer-events: none;
     cursor: default;
     color: ${theme.colors.purple};

@@ -7,16 +7,14 @@ export const Main = styled.main`
   left: 0;
   right: 0;
   bottom: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   display: flex;
   flex-flow: column nowrap;
   justify-content: stretch;
 `
 
 export const Nav = styled.nav`
-  background-color: ${({ theme }) => theme.colors.gray};
-  border-bottom: ${({ theme }) => theme.colors.purple} 1px solid;
+  background-color: ${({ theme }) => theme.colors.pink};
   box-sizing: border-box;
   height: 60px;
   display: flex;
