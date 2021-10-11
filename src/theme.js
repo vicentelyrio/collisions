@@ -10,6 +10,7 @@ export const theme = {
     lightBlue: '#B1FFFD',
     green: '#C1FFD7',
     gray: '#333333',
+    black: '#141414',
   },
   zIndex: {
     base: 0,

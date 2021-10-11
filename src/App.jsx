@@ -8,6 +8,8 @@ import { useRectangleRectangleCollision } from '@hooks/useRectangleRectangleColl
 import { useCircleRectangleCollision } from '@hooks/useCircleRectangleCollision'
 
 import { Demo } from './components/Demo/Demo'
+import { Selector } from './components/Selector/Selector'
+import { IconNav } from './components/IconNav/IconNav'
 
 import * as Styled from './App.styles'
 
@@ -108,40 +110,3 @@ export const App = () => {
     </Styled.Main>
   )
 }
-
-const Selector = ({ options, current, onSelect }) => {
-  const [opened, setOpened] = useState(false)
-  const onToggle = useCallback(() => setOpened(!opened), [opened])
-
-  return (
-    <Styled.Selector onClick={onToggle}>
-      <Styled.SelectorLabel children={`${current.pointer} - ${current.target}`} />
-      {opened && (
-        <Styled.SelectorSubmenu>
-          {options.map(({ pointer, target }) => (
-            <Styled.SelectorLabel
-              key={`${pointer}-${target}`}
-              children={`${pointer} - ${target}`}
-              selected={current.pointer === pointer && current.target === target}
-              onClick={onSelect({ pointer, target })}
-            />
-          ))}
-        </Styled.SelectorSubmenu>
-      )}
-    </Styled.Selector>
-  )
-}
-
-const IconNav = ({ options, label, current, onSelect }) => (
-  <Styled.IconNav>
-    <Styled.IconNavLabel children={label} />
-    {options.map((type) => (
-      <Styled.IconNavIcon
-        key={type}
-        icon={type}
-        selected={current[label] === type}
-        onClick={onSelect({ ...current, [label]: type })}
-      />
-    ))}
-  </Styled.IconNav>
-)
