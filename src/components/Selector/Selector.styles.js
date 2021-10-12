@@ -15,12 +15,8 @@ export const Selector = styled.div`
   display: flex;
   position: relative;
 
-  &:focus {
-    background-color: rgba(0, 0, 0, .3);
-  }
-
-  &:hover {
-    background-color: rgba(0, 0, 0, .4);
+  &:focus, &:hover {
+    box-shadow: rgba(0, 0, 0, .1) 3px 0 5px;
   }
 
   &:after {
@@ -43,11 +39,12 @@ export const Selector = styled.div`
 
 export const SelectorSubmenu = styled.div`
   background-color: ${({ theme }) => theme.colors.gray};
+  border-radius: 0 0 2px 2px;
   box-shadow: rgba(0, 0, 0, .1) 3px 0 5px;
   position: absolute;
   display: flex;
   flex-flow: column nowrap;
-  top: 100%;
+  top: 41px;
   left: 0;
   right: 0;
 `

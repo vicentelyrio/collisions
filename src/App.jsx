@@ -1,21 +1,22 @@
 import React, { useCallback, useState } from 'react'
 
-import { Demo } from './components/Demo/Demo'
+import { Demo, TYPES } from './components/Demo/Demo'
 import { Selector } from './components/Selector/Selector'
 import { IconNav } from './components/IconNav/IconNav'
 
 import * as Styled from './App.styles'
 
 const TARGETS = {
-  point: 'point',
-  circle: 'circle',
-  rect: 'rect',
+  [TYPES.point]: TYPES.point,
+  [TYPES.circle]: TYPES.circle,
+  [TYPES.rect]: TYPES.rect,
+  [TYPES.line]: TYPES.line,
 }
 
 const POINTERS = {
-  point: 'point',
-  circle: 'circle',
-  rect: 'rect',
+  [TYPES.point]: TYPES.point,
+  [TYPES.circle]: TYPES.circle,
+  [TYPES.rect]: TYPES.rect,
 }
 
 const EXAMPLES = [
@@ -28,12 +29,16 @@ const EXAMPLES = [
     target: TARGETS.circle,
   },
   {
-    pointer: POINTERS.circle,
-    target: TARGETS.circle,
+    pointer: POINTERS.point,
+    target: TARGETS.rect,
   },
   {
     pointer: POINTERS.point,
-    target: TARGETS.rect,
+    target: TARGETS.line,
+  },
+  {
+    pointer: POINTERS.circle,
+    target: TARGETS.circle,
   },
   {
     pointer: POINTERS.circle,
@@ -80,6 +85,7 @@ export const App = () => {
         />
       </Styled.Nav>
       <Demo {...current} />
+      <Styled.Footer />
     </Styled.Main>
   )
 }

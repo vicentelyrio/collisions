@@ -23,3 +23,14 @@ export const Nav = styled.nav`
   padding: 10px;
   z-index: ${({ theme }) => theme.zIndex.base + 2};
 `
+
+export const Footer = styled.footer`
+  background-color: ${({ theme }) => theme.colors.gray};
+  box-sizing: border-box;
+  height: 30px;
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 0 0 auto;
+  padding: 10px;
+  z-index: ${({ theme }) => theme.zIndex.base + 2};
+`

@@ -1,12 +1,8 @@
 import styled from 'styled-components'
 
-import { gameFont } from '@/theme'
+import { TYPES } from '@components/Demo/Demo'
 
-const TYPES = {
-  point: 'point',
-  circle: 'circle',
-  rect: 'rect',
-}
+import { gameFont } from '@/theme'
 
 export const IconNav = styled.div`
   display: flex;
@@ -100,6 +96,20 @@ export const IconNavIcon = styled.div`
         &:after {
           width: 22px;
           height: 22px;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto
+        }
+      `
+    }
+    if (type === TYPES.line) {
+      return `
+        &:after {
+          transform: rotate(-25deg);
+          width: 22px;
+          height: 2px;
           left: 0;
           right: 0;
           top: 0;

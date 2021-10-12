@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Point } from '@components/Point/Point'
 import { Pointer } from '@components/Pointer/Pointer'
 import { Target } from '@components/Target/Target'
+import { Line } from '@components/Line/Line'
 import { gameFont } from '@/theme'
 
 export const Demo = styled.section`
@@ -52,3 +53,5 @@ export const TargetPoint = styled(Point)`
 export const TargetCircle = styled(Target).attrs({ type: 'circle' })``
 
 export const TargetRect = styled(Target).attrs({ type: 'rect' })``
+
+export const TargetLine = styled(Line)``

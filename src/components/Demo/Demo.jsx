@@ -14,6 +14,7 @@ export const TYPES = {
   point: 'point',
   circle: 'circle',
   rect: 'rect',
+  line: 'line',
 }
 
 export const POINTER = {
@@ -26,15 +27,19 @@ export const TARGET = {
   [TYPES.point]: Styled.TargetPoint,
   [TYPES.circle]: Styled.TargetCircle,
   [TYPES.rect]: Styled.TargetRect,
+  [TYPES.line]: Styled.TargetLine,
 }
 
 const HOOKS = {
   [`${TYPES.point}-${TYPES.point}`]: usePointPointCollision,
   [`${TYPES.point}-${TYPES.circle}`]: usePointCircleCollision,
   [`${TYPES.point}-${TYPES.rect}`]: usePointRectCollision,
+  [`${TYPES.point}-${TYPES.line}`]: usePointPointCollision,
+
   [`${TYPES.circle}-${TYPES.point}`]: useCirclePointCollision,
   [`${TYPES.circle}-${TYPES.circle}`]: useCircleCircleCollision,
   [`${TYPES.circle}-${TYPES.rect}`]: useCircleRectCollision,
+
   [`${TYPES.rect}-${TYPES.point}`]: useRectPointCollision,
   [`${TYPES.rect}-${TYPES.circle}`]: useRectCircleCollision,
   [`${TYPES.rect}-${TYPES.rect}`]: useRectRectCollision,
@@ -53,7 +58,9 @@ export const Demo = ({ pointer, target }) => {
   const [pointerPosition, setElementPosition] = useState({})
   const [coord, setCoords] = useState({ x: 0, y: 0 })
 
-  const useCollision = useMemo(() => getCollision({ pointer, target }), [pointer, target])
+  const useCollision = useMemo(() => (
+    getCollision({ pointer, target }) ?? usePointPointCollision
+  ), [pointer, target])
   const { collided } = useCollision(pointerRef.current, targetRef.current)
 
   const onMouseMove = useCallback((event) => {

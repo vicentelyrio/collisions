@@ -20,7 +20,7 @@ export const Point = styled.div`
 
   &:after {
     border: solid 10px rgba(255, 255, 255, .2);
-    box-shadow: ${({ theme }) => theme.colors.pink} 0 0 0 1px;
+    box-shadow: rgba(255, 255, 255, .5) 0 0 0 2px;
     content: "";
     position: absolute;
     left: -10px;
