@@ -12,7 +12,7 @@ export const getCircleBounds = (node) => {
   return [cx, cy, r]
 }
 
-export const getBounds = (cur, min, max) => (
+export const clampBounds = (cur, min, max) => (
   Math.max(min, Math.min(cur, max))
 )
 

@@ -1,9 +1,10 @@
 import React, { useRef, useState, useCallback, useMemo } from 'react'
 
-import { getRectBounds, getBounds } from '@hooks/helpers'
+import { getRectBounds, clampBounds } from '@hooks/helpers'
 import { usePointPointCollision } from '@hooks/usePointPointCollision'
 import { useCircleCircleCollision } from '@hooks/useCircleCircleCollision'
 import { useRectRectCollision } from '@hooks/useRectRectCollision'
+import { usePointLineCollision } from '@hooks/usePointLineCollision'
 import { usePointCircleCollision, useCirclePointCollision } from '@hooks/usePointCircleCollision'
 import { usePointRectCollision, useRectPointCollision } from '@hooks/usePointRectCollision'
 import { useCircleRectCollision, useRectCircleCollision } from '@hooks/useCircleRectCollision'
@@ -34,7 +35,7 @@ const HOOKS = {
   [`${TYPES.point}-${TYPES.point}`]: usePointPointCollision,
   [`${TYPES.point}-${TYPES.circle}`]: usePointCircleCollision,
   [`${TYPES.point}-${TYPES.rect}`]: usePointRectCollision,
-  [`${TYPES.point}-${TYPES.line}`]: usePointPointCollision,
+  [`${TYPES.point}-${TYPES.line}`]: usePointLineCollision,
 
   [`${TYPES.circle}-${TYPES.point}`]: useCirclePointCollision,
   [`${TYPES.circle}-${TYPES.circle}`]: useCircleCircleCollision,
@@ -75,8 +76,8 @@ export const Demo = ({ pointer, target }) => {
     })
 
     setCoords({
-      x: getBounds(clientX - cx, 0, cw),
-      y: getBounds(clientY - cy, 0, ch)
+      x: clampBounds(clientX - cx, 0, cw),
+      y: clampBounds(clientY - cy, 0, ch)
     })
   }, [])
 
