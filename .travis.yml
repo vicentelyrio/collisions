@@ -17,7 +17,7 @@ jobs:
             - npx semantic-release
           on:
             all_branches: true
-            condition: "$TRAVIS_BRANCH =~ ^(main|master|beta|alpha|next|next-major)$"
+            condition: "$TRAVIS_BRANCH =~ ^(main|beta|alpha)$"
         - provider: pages
           skip_cleanup: true
           github-token: $GH_TOKEN
@@ -25,4 +25,4 @@ jobs:
           local_dir: docs
           on:
             all_branches: true
-            condition: "$TRAVIS_BRANCH =~ ^(main|master)$"
+            condition: "$TRAVIS_BRANCH =~ ^(main)$"
