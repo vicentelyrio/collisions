@@ -19,6 +19,8 @@ module.exports = {
     '@semantic-release/release-notes-generator',
     ['@semantic-release/changelog', { 'changelogFile': 'docs/CHANGELOG.md' }],
     ['@semantic-release/npm', { 'npmPublish': false }],
-    ['@semantic-release/github', { 'assets': ['docs/CHANGELOG.md'] }]
+    ['@semantic-release/github', {
+      'assets': ['docs/CHANGELOG.md', 'dist/*']
+    }]
   ],
 }
