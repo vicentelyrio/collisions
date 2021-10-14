@@ -11,7 +11,7 @@
     "lint": "eslint ./src",
     "lint:fix": "npm run lint --fix",
     "lint:staged": "lint-staged",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:coverage": "npm run test --coverage",
     "test:coverage:open": "open coverage/lcov-report/index.html",
     "test:watch": "npm run test --watch",
