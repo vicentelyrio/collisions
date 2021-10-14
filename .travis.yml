@@ -11,9 +11,18 @@ jobs:
         - npm run test:ci
         - npm run build
       deploy:
-        provider: script
-        skip_cleanup: true
-        script:
-          - npx semantic-release
-        on:
-          branch: main
+        - provider: script
+          skip_cleanup: true
+          script:
+            - npx semantic-release
+          on:
+            all_branches: true
+            condition: "$TRAVIS_BRANCH =~ ^(main|master|beta|alpha|next|next-major)$"
+        - provider: pages
+          skip_cleanup: true
+          github-token: $GH_TOKEN
+          target_branch: gh-pages
+          local_dir: docs
+          on:
+            all_branches: true
+            condition: "$TRAVIS_BRANCH =~ ^(main|master)$"
