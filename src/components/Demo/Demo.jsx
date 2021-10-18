@@ -8,6 +8,7 @@ import { usePointLineCollision } from '@hooks/usePointLineCollision'
 import { usePointCircleCollision, useCirclePointCollision } from '@hooks/usePointCircleCollision'
 import { usePointRectCollision, useRectPointCollision } from '@hooks/usePointRectCollision'
 import { useCircleRectCollision, useRectCircleCollision } from '@hooks/useCircleRectCollision'
+import { useCircleLineCollision } from '@hooks/useCircleLineCollision'
 
 import * as Styled from './Demo.styles'
 
@@ -40,6 +41,7 @@ const HOOKS = {
   [`${TYPES.circle}-${TYPES.point}`]: useCirclePointCollision,
   [`${TYPES.circle}-${TYPES.circle}`]: useCircleCircleCollision,
   [`${TYPES.circle}-${TYPES.rect}`]: useCircleRectCollision,
+  [`${TYPES.circle}-${TYPES.line}`]: useCircleLineCollision,
 
   [`${TYPES.rect}-${TYPES.point}`]: useRectPointCollision,
   [`${TYPES.rect}-${TYPES.circle}`]: useRectCircleCollision,
