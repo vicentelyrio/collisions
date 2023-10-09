@@ -1,0 +1,18 @@
+.main {
+  background-color: var(--mantine-color-pink-2);
+  height: 100lvh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: var(--mantine-navbar-h) 1fr;
+  grid-template-areas: "navbar" "workspace";
+}
+
+.nav {
+  background-color: var(--mantine-color-pink-2);
+  grid-area: "navbar";
+}
+
+.workspace {
+  background-color: var(--mantine-color-purple-2);
+  grid-area: "workspace";
+}
