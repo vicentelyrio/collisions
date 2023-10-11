@@ -25,12 +25,10 @@ jobs:
         with:
           node-version: "lts/*"
       - name: Install dependencies
-        run: npm clean-install
-      - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
-        run: npm audit signatures
+        run: yarn install
       - name: build
-        run: npm run build --if-present
+        run: yarn build
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+        run: yarn semantic-release
