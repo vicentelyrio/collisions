@@ -33,8 +33,11 @@ jobs:
       issues: write # to be able to comment on released issues
       pull-requests: write # to be able to comment on released pull requests
       id-token: write # to enable use of OIDC for npm provenance
+
     steps:
-      - name: Release
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic   # Need an `id` for output variables
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
