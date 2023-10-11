@@ -5,8 +5,6 @@ import {
   rem,
 } from '@mantine/core'
 
-import { generateColors } from '@mantine/colors-generator'
-
 export function createTheme(): MantineThemeOverride {
   return {
     respectReducedMotion: true,
@@ -14,15 +12,15 @@ export function createTheme(): MantineThemeOverride {
     defaultRadius: 'sm',
     primaryColor: 'pink',
     colors: {
-      purple: generateColors('#cab8ff'),
-      pink: generateColors('#eb92be'),
-      red: generateColors('#ff6a85'),
-      yellow: generateColors('#ffef78'),
-      blue: generateColors('#a8e7e9'),
-      indigo: generateColors('#b1fffd'),
-      green: generateColors('#c1ffd7'),
-      gray: generateColors('#333333'),
-      black: generateColors('#141414'),
+      purple: ['#cab8ff', '#cab8ff', '#cab8ff', '#cab8ff', '#cab8ff', '#cab8ff', '#cab8ff', '#cab8ff', '#cab8ff', '#cab8ff'],
+      pink: ['#eb92be', '#eb92be', '#eb92be', '#eb92be', '#eb92be', '#eb92be', '#eb92be', '#eb92be', '#eb92be', '#eb92be'],
+      red: ['#ff6a85', '#ff6a85', '#ff6a85', '#ff6a85', '#ff6a85', '#ff6a85', '#ff6a85', '#ff6a85', '#ff6a85', '#ff6a85'],
+      yellow: ['#ffef78', '#ffef78', '#ffef78', '#ffef78', '#ffef78', '#ffef78', '#ffef78', '#ffef78', '#ffef78', '#ffef78'],
+      blue: ['#a8e7e9', '#a8e7e9', '#a8e7e9', '#a8e7e9', '#a8e7e9', '#a8e7e9', '#a8e7e9', '#a8e7e9', '#a8e7e9', '#a8e7e9'],
+      indigo: ['#b1fffd', '#b1fffd', '#b1fffd', '#b1fffd', '#b1fffd', '#b1fffd', '#b1fffd', '#b1fffd', '#b1fffd', '#b1fffd'],
+      green: ['#c1ffd7', '#c1ffd7', '#c1ffd7', '#c1ffd7', '#c1ffd7', '#c1ffd7', '#c1ffd7', '#c1ffd7', '#c1ffd7', '#c1ffd7'],
+      gray: ['#333333', '#333333', '#333333', '#333333', '#333333', '#333333', '#333333', '#333333', '#333333', '#333333'],
+      black: ['#141414', '#141414', '#141414', '#141414', '#141414', '#141414', '#141414', '#141414', '#141414', '#141414'],
     },
     fontFamily: '"Noto Sans Display", sans-serif',
     fontFamilyMonospace: '"Press Start 2P", Monaco, Courier, monospace',
@@ -47,14 +45,13 @@ export function createTheme(): MantineThemeOverride {
           fontSize: rem(30),
         },
         h4: {
-          fontSize: rem(26),
+          fontSize: rem(24),
         },
         h5: {
-          fontSize: rem(22),
-          fontWeight: '400',
+          fontSize: rem(18),
         },
         h6: {
-          fontSize: rem(20),
+          fontSize: rem(12),
         },
       }
     },
@@ -79,10 +76,9 @@ export function createTheme(): MantineThemeOverride {
       icons: {
         xs: rem(10),
         sm: rem(16),
-        md: rem(24),
+        md: rem(22),
         lg: rem(28),
-        xl: rem(32),
-        xxl: rem(48),
+        xl: rem(40),
       },
       indexes: {
         base: 0,
@@ -100,7 +96,6 @@ export const cssVariablesResolver: CSSVariablesResolver = (theme: MantineTheme) 
     '--mantine-icons-md': theme?.other.icons.md,
     '--mantine-icons-lg': theme.other.icons.lg,
     '--mantine-icons-xl': theme.other.icons.xl,
-    '--mantine-icons-xxl': theme.other.icons.xxl,
     '--mantine-navbar-h': theme.other.navbar.height,
     '--mantine-indexes-base': theme.other.indexes.base,
     '--mantine-indexes-top': theme.other.indexes.top,

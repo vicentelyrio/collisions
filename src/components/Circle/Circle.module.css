@@ -1,0 +1,6 @@
+.circle,
+.circle:before,
+.circle:after {
+  border-radius: 50%;
+}
+
