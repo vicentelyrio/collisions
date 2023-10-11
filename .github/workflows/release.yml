@@ -33,6 +33,7 @@ jobs:
     needs: build
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Token LOG
         run: node -p process.env.GITHUB_TOKEN
