@@ -7,7 +7,7 @@ import classes from './App.module.css'
 import { Github } from './assets/github'
 
 import { IconNav, Shapes } from './components/IconNav/IconNav'
-import { useDemo } from 'useDemo'
+import { useDemo } from './useDemo'
 
 const SHAPES = [
   Shapes.point,
