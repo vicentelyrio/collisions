@@ -1,0 +1,30 @@
+.line {
+  max-width: 800px;
+  background-color: var(--mantine-color-pink-1);
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transform: rotate(-25deg);
+}
+
+.pointer {
+  transform: rotate(25deg);
+}
+
+.firstPoint {
+  left: 0;
+  right: auto;
+  margin: 0;
+}
+
+.lastPoint {
+  left: auto;
+  right: 0;
+  margin: 0;
+}
+

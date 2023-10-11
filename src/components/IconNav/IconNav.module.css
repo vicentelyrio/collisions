@@ -1,0 +1,119 @@
+.iconNav {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.iconNavLabel {
+  text-transform: uppercase;
+  line-height: var(--mantine-icons-xl);
+  color: var(--mantine-color-gray-1);
+}
+
+.iconNavIcon {
+  border-radius: 2px;
+  width: var(--mantine-icons-xl);
+  height: var(--mantine-icons-xl);
+  position: relative;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color ease-in-out .2s;
+}
+
+.iconNavIcon:hover {
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.iconNavIcon:active {
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.iconNavIcon:before,
+.iconNavIcon:after {
+  content: "";
+  position: absolute;
+}
+
+.iconNavIcon:after {
+  background-color: var(--mantine-color-gray-1);
+}
+
+.iconNavIcon:before {
+  border-color: var(--mantine-color-gray-1);
+}
+
+/* POINT icon */
+.point:after {
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto
+}
+
+.point:before {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 50%;
+  width: var(--mantine-icons-md);
+  height: var(--mantine-icons-md);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto
+}
+
+/* CIRCLE icon */
+.circle:after {
+  border-radius: 50%;
+  width: var(--mantine-icons-md);
+  height: var(--mantine-icons-md);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto
+}
+
+/* RECT icon */
+.rect:after {
+  width: var(--mantine-icons-md);
+  height: var(--mantine-icons-md);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto
+}
+
+/* LINE icon */
+.line:after {
+  transform: rotate(-25deg);
+  width: var(--mantine-icons-md);
+  height: 2px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto
+}
+
+.selected {
+  background-color: var(--mantine-color-gray-1);
+  pointer-events: none;
+  cursor: default;
+  color: var(--mantine-color-purple-3);
+}
+
+.selected:after {
+  background-color: var(--mantine-color-pink-1);
+}
+
+.selected:before {
+  border-color: var(--mantine-color-pink-1);
+}
+

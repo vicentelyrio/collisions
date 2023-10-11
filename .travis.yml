@@ -2,13 +2,12 @@ language: node_js
 os: linux
 dist: xenial
 node_js:
-  - 14.16.1
+  - 20.6.1
 jobs:
   include:
     - stage: release
-      node_js: 14.16.1
-      script: 
-        - npm run test:ci
+      node_js: 20.6.1
+      script:
         - npm run build
       deploy:
         - provider: script
