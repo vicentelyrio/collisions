@@ -21,10 +21,9 @@ export default {
 
         'mantine-icon-xs': '0.625rem',
         'mantine-icon-sm': '1rem',
-        'mantine-icon-md': '1.5rem',
+        'mantine-icon-md': '1.375rem',
         'mantine-icon-lg': '1.75rem',
-        'mantine-icon-xl': '2rem',
-        'mantine-icon-xxl': '3rem',
+        'mantine-icon-xl': '2.5rem',
 
         'mantine-navbar-h': '5rem',
 

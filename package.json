@@ -7,17 +7,17 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release",
+    "semantic-release:local": "semantic-release --dry-run --no-ci --debug=true"
   },
   "dependencies": {
-    "@mantine/colors-generator": "^7.1.2",
     "@mantine/core": "^7.1.2",
     "@mantine/hooks": "^7.1.2",
-    "chroma-js": "^2.4.2",
-    "eslint-plugin-react": "^7.33.2",
+    "clsx": "^2.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "victor": "^1.1.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.0",
@@ -49,5 +49,19 @@
     "semantic-release": "^19.0.3",
     "vite": "^2.9.16"
   },
-  "packageManager": "yarn@3.6.3"
+  "packageManager": "yarn@3.6.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vicentelyrio/react-collision.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vicentelyrio/react-collision/issues"
+  },
+  "homepage": "https://vicentelyrio.github.io/collisions",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
