@@ -40,7 +40,6 @@ jobs:
         id: semantic   # Need an `id` for output variables
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
 
   # Deploy job
   deploy:
