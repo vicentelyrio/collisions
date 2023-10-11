@@ -48,11 +48,11 @@
   "packageManager": "yarn@3.6.3",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vicentelyrio/react-collision.git"
+    "url": "git+https://github.com/vicentelyrio/collisions.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vicentelyrio/react-collision/issues"
+    "url": "https://github.com/vicentelyrio/collisions/issues"
   },
   "homepage": "https://vicentelyrio.github.io/collisions",
   "config": {
