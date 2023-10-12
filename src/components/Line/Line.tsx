@@ -6,12 +6,12 @@ import classes from './Line.module.css'
 import clsx from 'clsx'
 
 type LineType = BoxProps & {
-  pointer: boolean
+  pointer?: boolean
 }
 
 export const Line = forwardRef<HTMLDivElement, LineType>(({
   className,
-  pointer,
+  pointer = false,
   ...rest
 }, ref) => (
   <Box

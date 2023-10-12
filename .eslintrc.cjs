@@ -2,20 +2,13 @@ module.exports = {
   root: true,
   env: { browser: true, es2020: true },
   extends: [
-    "eslint:recommended",
+    'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime'
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true }
-    ]
-  },
   overrides: [
     {
       files: ['*.ts', '*.tsx'], // Your TypeScript files extension
@@ -30,6 +23,13 @@ module.exports = {
 
       parserOptions: {
         project: ['./tsconfig.json'], // Specify it only for TypeScript files
+      },
+      rules: {
+        'react/display-name': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off'
       },
     },
   ]
