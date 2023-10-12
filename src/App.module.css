@@ -1,0 +1,45 @@
+.main {
+  background-color: var(--mantine-color-pink-1);
+  height: 100lvh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: var(--mantine-navbar-h) 1fr;
+  grid-template-areas: "navbar" "workspace";
+}
+
+.nav {
+  background-color: var(--mantine-color-pink-1);
+  grid-area: navbar;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--mantine-spacing-md);
+}
+
+.workspace {
+  background-color: var(--mantine-color-purple-1);
+  grid-area: workspace;
+  position: relative;
+  cursor: none;
+  overflow: hidden;
+  transition: background-color ease-in-out .5s;
+}
+
+.workspace.collided {
+  background-color: var(--mantine-color-yellow-1);
+}
+
+.coords {
+  text-transform: capitalize;
+  color: var(--mantine-color-gray-1);
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: var(--mantine-spacing-md);
+}
+
+.github {
+  width: var(--mantine-icons-xl);
+  height: var(--mantine-icons-xl);
+}

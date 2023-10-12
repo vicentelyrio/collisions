@@ -1,0 +1,31 @@
+.point {
+  width: 0;
+  height: 0;
+  box-sizing: border-box;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.point:before,
+.point:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.point:before {
+  border: solid 2px var(--mantine-color-black-1);
+  left: -2px;
+  top: -2px;
+}
+
+.point:after {
+  border: solid 10px rgba(255, 255, 255, .2);
+  box-shadow: rgba(255, 255, 255, .5) 0 0 0 2px;
+  left: -10px;
+  top: -10px;
+}
