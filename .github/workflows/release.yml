@@ -4,7 +4,7 @@ on:
     branches: [ main, beta ]
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
   issues: write
   repository-projects: write
