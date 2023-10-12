@@ -51,7 +51,7 @@
   "packageManager": "yarn@3.6.3",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vicentelyrio/collisions.git"
+    "url": "https://github.com/vicentelyrio/collisions.git"
   },
   "license": "ISC",
   "bugs": {
