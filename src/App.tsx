@@ -68,11 +68,9 @@ function App() {
           className={clsx([classes.workspace, collided ? classes.collided : null])}
           ref={containerRef}
           onMouseMove={onMouseMove}>
-          <Title
-            order={6}
-            className={classes.coords}
-            children={`${coords[0]} x | ${coords[0]} y`}
-          />
+          <Title order={6} className={classes.coords}>
+            {`${coords[0]} x | ${coords[0]} y`}
+          </Title>
           <Target ref={targetRef} />
           <Pointer ref={pointerRef} style={pointerPosition} />
         </Box>

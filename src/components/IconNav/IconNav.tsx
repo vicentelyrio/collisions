@@ -19,7 +19,7 @@ export type IconNavType = BoxProps & {
 
 export const IconNav = ({ options, label, current, onSelect }: IconNavType) => (
   <Box className={classes.iconNav}>
-    <Title order={6} className={classes.iconNavLabel} children={label} />
+    <Title order={6} className={classes.iconNavLabel}>{label}</Title>
     {options.map((type) => (
       <Box
         key={type}

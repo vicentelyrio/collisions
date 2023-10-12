@@ -91,9 +91,9 @@ export function createTheme(): MantineThemeOverride {
 
 export const cssVariablesResolver: CSSVariablesResolver = (theme: MantineTheme) => ({
   variables: {
-    '--mantine-icons-xs': theme?.other.icons.xs,
-    '--mantine-icons-sm': theme?.other.icons.sm,
-    '--mantine-icons-md': theme?.other.icons.md,
+    '--mantine-icons-xs': theme.other.icons.xs,
+    '--mantine-icons-sm': theme.other.icons.sm,
+    '--mantine-icons-md': theme.other.icons.md,
     '--mantine-icons-lg': theme.other.icons.lg,
     '--mantine-icons-xl': theme.other.icons.xl,
     '--mantine-navbar-h': theme.other.navbar.height,
